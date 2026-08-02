@@ -1,8 +1,21 @@
-{
-  "licenses": [
-    {
-      "key": "DOXY-TEST-1234",
-      "active": true
-    }
-  ]
-}
+import requests
+
+LICENSE_URL = ""
+
+
+def check_license():
+
+    key = input("Enter your Doxy license key: ")
+
+    try:
+        response = requests.get(LICENSE_URL)
+        data = response.json()
+
+        for license in data["licenses"]:
+            if license["key"] == key and license["active"]:
+                return True
+
+        return False
+
+    except:
+        return False
