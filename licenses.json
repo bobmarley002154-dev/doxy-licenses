@@ -1,6 +1,6 @@
 import requests
 
-LICENSE_URL = "https://raw.githubusercontent.com/bobmarley002154-dev/doxy-licenses/refs/heads/main/licenses.json"
+LICENSE_URL = "https://raw.githubusercontent.com/bobmarley002154-dev/doxy-licenses/main/licenses.json"
 
 
 def check_license():
@@ -17,5 +17,6 @@ def check_license():
 
         return False
 
-    except:
+    except Exception as e:
+        print(e)
         return False
